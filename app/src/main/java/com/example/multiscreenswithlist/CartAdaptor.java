@@ -46,12 +46,23 @@ public class CartAdaptor extends BaseAdapter {
         }else{
             holder = (ViewHolder)convertView.getTag();
         }
-        holder.txvCartProductName.setText(MainActivity.products.get(position).getName());
+        holder.txvCartProductName.setText(getProductName(cartItems.get(position).getProductID()));
         holder.txvCartQuantity.setText("x  " + cartItems.get(position).getQuantity());
         return convertView;
     }
 
     static class ViewHolder{
         private TextView txvCartProductName, txvCartQuantity;
+    }
+
+    private String getProductName(int index){
+        int countIndex = 0;
+        for(Product pd: MainActivity.products){
+            if(countIndex == index){
+                return pd.getName();
+            }
+            countIndex += 1;
+        }
+        return null;
     }
 }

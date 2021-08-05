@@ -24,7 +24,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fillProducts();
+        if(products.size() == 0){
+            fillProducts();
+        }
+
 
         welcome=findViewById(R.id.txvWelcome);
         prodList=findViewById(R.id.lvProducts);
@@ -65,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void fillProducts()
     {
-        products.clear();
         products.add(new Product("Camping Chair",59.99,R.drawable.chair,"Brand New Upgraded Design with Your COMFORT in Mind! The new YIZI GO design is 1cm higher and 15% lighter and prior version. Experience superior lower back support from the new deeper seat fabric"));
         products.add(new Product("Sleeping Pad",86.99,R.drawable.sleeping,"UPGRADE BUILT-IN PUMP : No additional air pump is needed, and avoid the embarrassment of blowing with your mouth. Just press the pump with your hands or feet multiple times,"));
         products.add(new Product("Travel Towel",11.99,R.drawable.towel,"Microfiber&Friendly to Skin: This microfiber travel towel is made of high quality microfiber,which is smooth and compact,more soft,friendly to skin,no faded"));

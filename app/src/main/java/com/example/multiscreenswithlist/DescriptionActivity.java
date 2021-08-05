@@ -48,6 +48,7 @@ public class DescriptionActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please provide the quantity.", Toast.LENGTH_SHORT).show();
             }else{
                 int addQuantity = Integer.parseInt(quantity);
+                System.out.println(MainActivity.index);
                 Cart updateCartItem = checkCart();
                 if(updateCartItem == null){
                     cartItems.add(new Cart(LoginActivity.UserName,MainActivity.index,addQuantity));
